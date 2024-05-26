@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title th:text="#{bib.titel}">Bibliotheek</title>
+<link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+<th:block th:insert="~{navbar :: navbar}"/>
+<form method="POST" th:action="@{/addBoek}"  th:object="${nieuwBoek}">
+	<table>
+		<tr>
+			<td th:text="#{boekinfo.titel}">Titel: </td>
+			<td><input type="text" th:field="*{titel}" size="20" /> 
+			<span 
+				th:if="${#fields.hasErrors('titel')}" class="error-field"
+				>
+				<ul>
+        <li th:each="error : ${#fields.errors('titel')}" th:text="${error}"></li>
+    </ul></td>	
+			</span>
+		</tr>
+		<tr>	
+			<td th:text="#{boekinfo.auteurs}">Auteurs: </td>
+			<td>
+				<select th:field="${nieuwBoek.auteurs}" multiple>
+					<option th:each="auteur: ${alleAuteurs}" th:value="${auteur.id}" th:text="|${auteur.voornaam} ${auteur.achternaam}|" />
+				</select>
+				<span 
+				th:if="${#fields.hasErrors('auteurs')}" class="error-field"
+				>
+				<ul>
+        <li th:each="error : ${#fields.errors('auteurs')}" th:text="${error}"></li>
+    </ul></span>	
+		</tr>
+		<tr>	
+			<td th:text="#{boekinfo.isbn}">ISBN: </td>
+			<td><input type="text" th:field="*{ISBNNr}" />
+			<span 
+				th:if="${#fields.hasErrors('ISBNNr')}" class="error-field"
+				>
+				<ul>
+        <li th:each="error : ${#fields.errors('ISBNNr')}" th:text="${error}"></li>
+    </ul></td></span>	
+		</tr>
+		<tr>
+			<td th:text="#{boekinfo.prijs}">Prijs: </td>
+			<td><input  th:field="*{prijs}"/>
+			            <span 
+				th:if="${#fields.hasErrors('prijs')}" class="error-field"
+				>
+				<ul>
+        <li th:each="error : ${#fields.errors('prijs')}" th:text="${error}"></li>
+    </ul></td></span>	
+		</tr>
+		<tr>	
+			<td th:text="#{boekinfo.locaties}">Locaties</td>	
+			            <td/>
+            <span 
+				th:if="${#fields.hasErrors('locaties')}" class="error-field"
+				>
+				<ul>
+        <li th:each="error : ${#fields.errors('locaties')}" th:text="${error}"></li>
+    </ul></span>	
+		</tr>
+        <tr>
+        
+            <td th:text="|#{boekinfo.locatie} 1|">Locatie 1</td>
+
+        </tr>
+        <tr>
+            <td th:text="|#{boekinfo.plaatscode} 1:|">Plaatscode 1: </td>
+            <td><input type="text" th:field="*{locaties[0].plaatsCode1}" />
+           <span 
+				th:if="${#fields.hasErrors('locaties[0].plaatsCode1')}" class="error-field"
+				>
+				<ul>
+        <li th:each="error : ${#fields.errors('locaties[0].plaatsCode1')}" th:text="${error}"></li>
+    </ul></td></span>	
+        </tr>
+        <tr>
+            <td th:text="|#{boekinfo.plaatscode} 2:|">Plaatscode 2: </td>
+            <td><input type="text" th:field="*{locaties[0].plaatsCode2}" />
+            <span 
+				th:if="${#fields.hasErrors('locaties[0].plaatsCode2')}" class="error-field"
+				>
+				<ul>
+        <li th:each="error : ${#fields.errors('locaties[0].plaatsCode2')}" th:text="${error}"></li>
+    </ul></td></span>	
+        </tr>
+        <tr>
+            <td th:text="|#{boekinfo.plaatsnaam}:|">Plaatsnaam: </td>
+            <td><input type="text" th:field="*{locaties[0].plaatsnaam}" />
+            <span 
+				th:if="${#fields.hasErrors('locaties[0].plaatsnaam')}" class="error-field"
+				>
+				<ul>
+        <li th:each="error : ${#fields.errors('locaties[0].plaatsnaam')}" th:text="${error}"></li>
+    </ul></td></span>	
+        </tr>
+        <tr>
+            <td th:text="|#{boekinfo.locatie} 2|">Locatie 2</td>
+        </tr>
+        <tr>
+            <td th:text="|#{boekinfo.plaatscode} 1:|">Plaatscode 1: </td>
+            <td><input type="text" th:field="*{locaties[1].plaatsCode1}" />
+            <span 
+				th:if="${#fields.hasErrors('locaties[1].plaatsCode1')}" class="error-field"
+				>
+				<ul>
+        <li th:each="error : ${#fields.errors('locaties[1].plaatsCode1')}" th:text="${error}"></li>
+    </ul></td></span>	
+        </tr>
+        <tr>
+            <td th:text="|#{boekinfo.plaatscode} 2:|">Plaatscode 2: </td>
+            <td><input type="text" th:field="*{locaties[1].plaatsCode2}" />
+            <span 
+				th:if="${#fields.hasErrors('locaties[1].plaatsCode2')}" class="error-field"
+				>
+				<ul>
+        <li th:each="error : ${#fields.errors('locaties[1].plaatsCode2')}" th:text="${error}"></li>
+    </ul></span>	
+        </tr>
+        <tr>
+            <td th:text="|#{boekinfo.plaatsnaam}:|">Plaatsnaam: </td>
+            <td><input type="text" th:field="*{locaties[1].plaatsnaam}" />
+            <span 
+				th:if="${#fields.hasErrors('locaties[1].plaatsnaam')}" class="error-field"
+				>
+				<ul>
+        <li th:each="error : ${#fields.errors('locaties[1].plaatsnaam')}" th:text="${error}"></li>
+    </ul></td></span>	
+        </tr>
+        <tr>
+            <td th:text="|#{boekinfo.locatie} 3|">Locatie 3</td>
+        </tr>
+        <tr>
+            <td th:text="|#{boekinfo.plaatscode} 1:|">Plaatscode 1: </td>
+            <td><input type="text" th:field="*{locaties[2].plaatsCode1}" />
+            <span 
+				th:if="${#fields.hasErrors('locaties[2].plaatsCode1')}" class="error-field"
+				>
+				<ul>
+        <li th:each="error : ${#fields.errors('locaties[2].plaatsCode1')}" th:text="${error}"></li>
+    </ul></td></span>	
+        </tr>
+        <tr>
+            <td th:text="|#{boekinfo.plaatscode} 2:|">Plaatscode 2: </td>
+            <td><input type="text" th:field="*{locaties[2].plaatsCode2}" />
+            <span 
+				th:if="${#fields.hasErrors('locaties[2].plaatsCode2')}" class="error-field"
+				>
+				<ul>
+        <li th:each="error : ${#fields.errors('locaties[2].plaatsCode2')}" th:text="${error}"></li>
+    </ul></td></span>	 
+        </tr>
+        <tr>
+            <td th:text="|#{boekinfo.plaatsnaam}:|">Plaatsnaam: </td>
+            <td><input type="text" th:field="*{locaties[2].plaatsnaam}" />
+            <span 
+				th:if="${#fields.hasErrors('locaties[2].plaatsnaam')}" class="error-field"
+				>
+				<ul>
+        <li th:each="error : ${#fields.errors('locaties[2].plaatsnaam')}" th:text="${error}"></li>
+    </ul></td></span>	
+        </tr>
+            
+		<tr>
+			<td><input type="submit" th:value="#{boekinfo.add}"></td>
+	</table>
+</form>
+</body>
+</html>

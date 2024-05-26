@@ -1,0 +1,219 @@
+.error {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+}
+
+.msg {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    color: #31708f;
+    background-color: #d9edf7;
+    border-color: #bce8f1;
+}
+
+.error-field {
+	color:red;
+}
+
+#login-box {
+    width: 300px;
+    padding: 20px;
+    margin: 100px auto;
+    background: #fff;
+    border-radius: 2px;
+    border: 1px solid #000;
+}
+
+    /* Navbar styles */
+    .navbar {
+      width: 100%;
+      background-color: #333;
+      overflow: hidden;
+    }
+    
+    .navbar ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      display:inline-block;
+    }
+    
+    .navbar li {
+      display: inline-block;
+      padding:10px;
+      margin-right: 10px;
+      color: white;
+    }
+    
+    .navbar li a {
+      color: white;
+      text-decoration: none;
+      padding: 10px;
+    }
+    
+    .navbar .right {
+      float: right;
+    }
+    
+    
+    .card {
+    background-color: white;
+    border-radius: 4px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card p {
+    margin: 0;
+}
+
+.card .book-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.details-button {
+    display: inline-block;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.details-button:hover {
+    background-color: #45a049;
+}
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.page-title {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.details {
+    background-color: #f7f7f7;
+    padding: 20px;
+    border-radius: 4px;
+}
+
+.book-details-table {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.label-column {
+    font-weight: bold;
+    width: 100px;
+}
+
+.author-list,
+.location-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.author-list li,
+.location-list li {
+    margin-bottom: 5px;
+}
+
+.favorite-button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.favorite-button:hover {
+    background-color: #45a049;
+}
+
+.unfavorite-button{
+	background-color:#ccc
+}
+.unfavorite-button:hover{
+	background-color:#999
+}
+
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+        .error-field {
+            color: red;
+        }
+        .error-list {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+            color: red;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+        .error-field input {
+            border: 1px solid red;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }

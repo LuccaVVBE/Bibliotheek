@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="#{bib.titel}">Bibliotheek</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+    <th:block th:insert="~{navbar :: navbar}"/>
+    
+    <div class="container">
+        <h1 class="page-title" th:text="#{boek.details}">Titel</h1>
+
+        <div class="details" th:object=${boek}>
+            <table class="book-details-table">
+                <tr>
+                    <td class="label-column">Titel:</td>
+                    <td th:text="*{titel}"></td>
+                </tr>
+                <tr>
+                    <td class="label-column">Auteurs:</td>
+                    <td>
+                        <ul class="author-list" th:each="auteur: ${boek.auteurs}">
+                            <li th:text="|${auteur.voornaam} ${auteur.achternaam}|"></li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label-column">ISBN:</td>
+                    <td th:text="*{ISBNNr}"></td>
+                </tr>
+                <tr>
+                    <td class="label-column">Prijs:</td>
+                    <td th:text="|&euro;*{prijs}|"></td>
+                </tr>
+                <tr>
+                    <td class="label-column">Aantal favorieten:</td>
+                    <td th:text="*{favorieten.size()}"></td>
+                </tr>
+                <tr>
+                    <td class="label-column">Locaties:</td>
+                    <td>
+                        <ul class="location-list" th:each="locatie: ${boek.locaties}">
+                            <li th:text="|${locatie.plaatsnaam}: ${locatie.plaatsCode1} ${locatie.plaatsCode2}|"></li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+            
+            <form method="post" th:action="${#ctx.springRequestContext.requestUri}" th:if="${#authorization.expression('hasRole(''USER'')')}">
+                <button th:if="!${isFavoriet}" type="submit" class="favorite-button">Voeg toe aan favorieten</button>
+                <button th:if="${isFavoriet}" type="submit" class="favorite-button unfavorite-button">Verwijder uit favorieten</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

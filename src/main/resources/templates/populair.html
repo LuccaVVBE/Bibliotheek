@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title th:text="#{bib.titel}">Bibliotheek</title>
+<link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+<th:block th:insert="~{navbar :: navbar}"/>
+<h1 th:text="#{bib.welkom}">Welkom</h1>
+
+<p th:if=${boeken.size()==0} th:text="#{bib.nopopulair}">Geen populair</p>
+
+<th:block th:each="boek: ${boeken}" th:if=${boeken.size()!=0}>
+<div th:class="card" >
+	<p th:text="${boek.titel}" th:class="book-title">Titel</p>
+	<p th:each="auteur: ${boek.auteurs}" th:text="|${auteur.voornaam} ${auteur.achternaam}|"/>
+	<p th:text="|Aantal favorieten: ${boek.favorieten.size()}|"/>
+	<a th:class="details-button" th:href="@{|boek/${boek.ISBNNr}|}" th:text="#{boek.details}"></a>
+</div>
+</th:block>
+
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>
